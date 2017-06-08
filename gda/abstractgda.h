@@ -4,13 +4,34 @@
 #include <QObject>
 #include "common/abstractframeconsumer.h"
 #include "common/abstractgesturedetector.h"
+#include "common/gesturelibrary.h"
 #include "gda/common/abstractgesturedescriptor.h"
 
-class AbstractGDA: public AbstractFrameConsumer, public AbstractGestureDetector
+// Here you can see some hack to avoid multiple inheritance from QObject:
+// AbstractGDA is presented as composition of AbstractGDA and AbstractGDAEmitter
+// AbstractGDA does all work of image processing and gesture detection while
+// AbstractGDAEmitter is used to emit signals of gesture detection that is done
+// by AbstractGDA
+
+class AbstractGDA;
+
+class AbstractGDAEmitter: public AbstractGestureDetector
 {
 public:
-	AbstractGDA();
+	void emitGestureDetected(int gestureId)
+	{
+		onGestureDetected(gestureId);
+	}
+};
+
+class AbstractGDA: public AbstractFrameConsumer
+{
+	Q_OBJECT
+public:
+	AbstractGDA(std::string glibFilename);
 	~AbstractGDA();
+
+	AbstractGestureDetector* getDetector();
 
 protected:
 	/**
@@ -20,12 +41,19 @@ protected:
 	 * GESTURE_DETECTED internally.
 	 * @param candidate - the obtained descriptor that can be a predefined gesture.
 	 */
-	void onGestureCandidate(AbstractGestureDescriptor& candidate);
+	void onGestureCandidate(AbstractGestureDescriptor* candidate);
+
+	virtual int classifyGesture(AbstractGestureDescriptor* gesture);
 
 	/**
 	 * @brief Variable is used to compare gesture candidates with gesture models in library
 	 */
 	float matchingAccuracy;
+
+	GestureLibrary glib;
+
+private:
+	AbstractGDAEmitter emitter;
 };
 
 #endif // ABSTRACTGDA_H

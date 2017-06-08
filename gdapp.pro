@@ -19,7 +19,10 @@ SOURCES += main.cpp \
     gda/common/abstractgesturedescriptor.cpp \
     gda/keypose/abstractposedescriptor.cpp \
     gda/keypose/keyposegesturedescriptor.cpp \
-    gda/keypose/keyposegda.cpp
+    gda/keypose/keyposegda.cpp \
+    common/gesturelibrary.cpp \
+    fp/webcameraframeproducer.cpp \
+    common/util/displayframeconsumer.cpp
 
 HEADERS += \
     common/basicmodule.h \
@@ -31,6 +34,9 @@ HEADERS += \
     gda/common/abstractgesturedescriptor.h \
     gda/keypose/abstractposedescriptor.h \
     gda/keypose/keyposegesturedescriptor.h \
-    gda/keypose/keyposegda.h
+    gda/keypose/keyposegda.h \
+    common/gesturelibrary.h \
+    fp/webcameraframeproducer.h \
+    common/util/displayframeconsumer.h
 
 include(libs.pri)

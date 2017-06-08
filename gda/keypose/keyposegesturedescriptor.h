@@ -1,6 +1,7 @@
 #ifndef KEYPOSEGESTUREDESCRIPTOR_H
 #define KEYPOSEGESTUREDESCRIPTOR_H
 
+#include <fstream>
 #include "gda/common/abstractgesturedescriptor.h"
 #include "abstractposedescriptor.h"
 
@@ -16,7 +17,9 @@ public:
 	 * @param The obtained descriptor.
 	 * @return Whether the gesture descriptor was modified
 	 */
-	virtual bool appendPose(AbstractPoseDescriptor* keyPoseCandidate, float accuracy);
+	virtual bool appendPose(int poseIndex);
+
+	virtual float similarTo(AbstractGestureDescriptor *templateDesctiptor) override;
 
 private:
 	int* poses;
@@ -24,6 +27,7 @@ private:
 	unsigned int N;
 	void pushToQueue(int next);
 	int getPoseAt(unsigned int index);
+	void resetPointer();
 };
 
 #endif // KEYPOSEGESTUREDESCRIPTOR_H

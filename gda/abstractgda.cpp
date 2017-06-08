@@ -1,15 +1,28 @@
 #include "abstractgda.h"
 
-AbstractGDA::AbstractGDA()
+AbstractGDA::AbstractGDA(std::string glibFilename)
 {
-	matchingAccuracy = 1.0;
+	matchingAccuracy = 0.8F;
+	glib.load(glibFilename);
 }
 
-void AbstractGDA::onGestureCandidate(AbstractGestureDescriptor &candidate)
+AbstractGDA::~AbstractGDA() {}
+
+AbstractGestureDetector* AbstractGDA::getDetector()
 {
-	int detected = GestureLibrary::matchGesture(candidate);
+	return &emitter;
+}
+
+void AbstractGDA::onGestureCandidate(AbstractGestureDescriptor* candidate)
+{
+	int detected = classifyGesture(candidate);
 	if (detected != -1)
 	{
-		this->onGestureDetected(detected);
+		emitter.emitGestureDetected(detected);
 	}
+}
+
+int AbstractGDA::classifyGesture(AbstractGestureDescriptor *gesture)
+{
+	return glib.match(gesture, matchingAccuracy);
 }
