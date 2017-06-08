@@ -1,0 +1,14 @@
+{
+	"module": "webcam",
+	"params": { "cam_id": 0 },
+	"consumers":
+	[
+		{
+			"module": "displayer",
+			"params":
+			{
+				"window_name": "Video"
+			}
+		}
+	]
+}

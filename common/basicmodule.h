@@ -29,7 +29,11 @@ public:
 
 	static BasicModule* create(const std::string& name, const nlohmann::json& params)
 	{
-		return getRegistry()[name]->create(params);
+		auto r = getRegistry();
+		auto search = r.find(name);
+		if (search == r.end())
+			return nullptr;
+		return search->second->create(params);
 	}
 
 	static t_map& getRegistry()

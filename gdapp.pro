@@ -22,7 +22,8 @@ SOURCES += main.cpp \
     gda/keypose/keyposegda.cpp \
     common/gesturelibrary.cpp \
     fp/webcameraframeproducer.cpp \
-    common/util/displayframeconsumer.cpp
+    common/util/displayframeconsumer.cpp \
+    common/pipebuilder.cpp
 
 HEADERS += \
     common/basicmodule.h \
@@ -37,6 +38,7 @@ HEADERS += \
     gda/keypose/keyposegda.h \
     common/gesturelibrary.h \
     fp/webcameraframeproducer.h \
-    common/util/displayframeconsumer.h
+    common/util/displayframeconsumer.h \
+    common/pipebuilder.h
 
 include(libs.pri)

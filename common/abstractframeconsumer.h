@@ -17,7 +17,7 @@ public:
 	 * When linked, consumes every produced frame (see onNextFrameConsumed).
 	 * @param producer - the source of video frames
 	 */
-	void consume(AbstractFrameProducer& producer);
+	void consume(AbstractFrameProducer* producer);
 
 	/**
 	 * @brief Stops consuming frames from FrameProducer and disconnects from it.

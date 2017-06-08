@@ -1,0 +1,38 @@
+{
+	"module": "webcam",
+	"params": { "cam_id": 0 },
+	"consumers":
+	[
+		{
+			"module": "neurogda",
+			"params":
+			{
+				"weights": "w.caffemodel",
+				"structure": "s.prototxt",
+				"gesture_library": "g.glib"
+			},
+			"consumers":
+			[
+				{
+					"module": "logger",
+					"params": { "ostream": "cout", "type": "stream" }
+				},
+				{
+					"module": "logger",
+					"params": { "ostream": "output.log", "type": "file" }
+				},
+				{
+					"module": "appcloser",
+					"params": { "gesture_id": 2, "repeat_twice": true }
+				}
+			]
+		},
+		{
+			"module": "displayer",
+			"params":
+			{
+				"window_name": "Video"
+			}
+		}
+	]
+}

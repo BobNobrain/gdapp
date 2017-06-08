@@ -5,9 +5,9 @@ AbstractFrameConsumer::AbstractFrameConsumer()
 	frameProducer = nullptr;
 }
 
-void AbstractFrameConsumer::consume(AbstractFrameProducer& producer)
+void AbstractFrameConsumer::consume(AbstractFrameProducer* producer)
 {
-	this->frameProducer = &producer;
+	this->frameProducer = producer;
 	connect(frameProducer, SIGNAL(frameProduced(cv::Mat&)), this, SLOT(frameProduced(cv::Mat&)));
 }
 
