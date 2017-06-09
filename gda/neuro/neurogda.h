@@ -7,6 +7,7 @@
 
 class NeuroGDA: public KeyPoseGDA
 {
+	Q_OBJECT
 public:
 	NeuroGDA(std::string glibFilename, unsigned int maxPosesPerGesture);
 	~NeuroGDA();

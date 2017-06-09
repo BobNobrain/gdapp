@@ -58,3 +58,5 @@ public:
 		return result;
 	}
 };
+
+static NeuroGDAFactory global_NeuroGDAFactory;
