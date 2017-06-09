@@ -1,0 +1,8 @@
+LIBS += -L/usr/local/lib \
+    -lopencv_core \
+    -lopencv_imgproc \
+    -lopencv_imgcodecs \
+    -lopencv_highgui \
+    -lopencv_video \
+    -lopencv_videoio \
+    -lopencv_dnn
