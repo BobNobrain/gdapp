@@ -27,7 +27,8 @@ SOURCES += main.cpp \
     gda/neuro/neurogda.cpp \
     gda/neuro/neuralnet.cpp \
     gda/neuro/caffeneuralnet.cpp \
-    gda/neuro/image227keyposedescriptor.cpp
+    gda/neuro/image227keyposedescriptor.cpp \
+    gda/stub/stubgda.cpp
 
 HEADERS += \
     common/basicmodule.h \
@@ -47,6 +48,7 @@ HEADERS += \
     gda/neuro/neurogda.h \
     gda/neuro/neuralnet.h \
     gda/neuro/caffeneuralnet.h \
-    gda/neuro/image227keyposedescriptor.h
+    gda/neuro/image227keyposedescriptor.h \
+    gda/stub/stubgda.h
 
 include(libs.pri)
