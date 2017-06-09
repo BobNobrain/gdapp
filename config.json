@@ -14,7 +14,7 @@
 			"module": "stubgda",
 			"params":
 			{
-				"generation_chance": 0.1,
+				"generation_chance": 0.02,
 				"gesture_library": "glib.json"
 			},
 			"consumers":
@@ -25,6 +25,14 @@
 					{
 						"ostream": "cout",
 						"type": "stream"
+					}
+				},
+				{
+					"module": "appclose",
+					"params":
+					{
+						"gesture_id": 1,
+						"repeat_twice": true
 					}
 				}
 			]
