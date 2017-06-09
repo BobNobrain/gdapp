@@ -1,4 +1,5 @@
 QT += core
+QT += network
 QT -= gui
 
 CONFIG += c++11
@@ -30,7 +31,8 @@ SOURCES += main.cpp \
     gda/neuro/image227keyposedescriptor.cpp \
     gda/stub/stubgda.cpp \
     gl/loggergesturelistener.cpp \
-    gl/appclosegesturelistener.cpp
+    gl/appclosegesturelistener.cpp \
+    fp/netcameraframeproducer.cpp
 
 HEADERS += \
     common/basicmodule.h \
@@ -53,6 +55,7 @@ HEADERS += \
     gda/neuro/image227keyposedescriptor.h \
     gda/stub/stubgda.h \
     gl/loggergesturelistener.h \
-    gl/appclosegesturelistener.h
+    gl/appclosegesturelistener.h \
+    fp/netcameraframeproducer.h
 
 include(libs.pri)
