@@ -9,7 +9,7 @@ class NetCameraFrameProducer: public AbstractFrameProducer
 {
 	Q_OBJECT
 public:
-	NetCameraFrameProducer();
+	NetCameraFrameProducer(int port);
 	~NetCameraFrameProducer();
 
 protected:

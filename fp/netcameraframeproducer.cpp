@@ -9,7 +9,7 @@
 
 const int imageFormat = CV_8UC3;
 
-NetCameraFrameProducer::NetCameraFrameProducer()
+NetCameraFrameProducer::NetCameraFrameProducer(int port)
 {
 	myServer = new QTcpServer(this);
 	connect(myServer, SIGNAL(newConnection()), this, SLOT(newConnectionUser()));
@@ -17,7 +17,7 @@ NetCameraFrameProducer::NetCameraFrameProducer()
 	command = -1;
 	width   = -1;
 	height  = -1;
-	port = 9091;
+	this->port = port;
 
 	lastFrame = cv::Mat(20, 20, imageFormat, cv::Scalar(255, 0, 0));
 }
@@ -255,3 +255,26 @@ void NetCameraFrameProducer::sendMsg(COMMAND cmd)
 	out << (quint8) cmd;
 	camera->write(msg);
 }
+
+class NetCameraFrameProducerFactory: public ModuleFactory
+{
+public:
+	NetCameraFrameProducerFactory()
+	{
+		BasicModule::registerModule("netcam", this);
+	}
+
+	BasicModule* create(const nlohmann::json &params)
+	{
+		int port = 9090;
+		auto search = params.find("port");
+		if (search != params.end())
+		{
+			port = search.value();
+		}
+		auto result = new NetCameraFrameProducer(port);
+		return result;
+	}
+};
+
+static NetCameraFrameProducerFactory global_NetCameraFrameProducerFactory;
