@@ -15,6 +15,8 @@ public:
 
 	int match(AbstractGestureDescriptor* gesture, float accuracy);
 
+	std::string& getGestureName(int gestureId);
+
 protected:
 	std::vector<AbstractGestureDescriptor*> contents;
 };

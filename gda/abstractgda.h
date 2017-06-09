@@ -18,9 +18,24 @@ class AbstractGDA;
 class AbstractGDAEmitter: public AbstractGestureDetector
 {
 public:
+	AbstractGDAEmitter(AbstractGDA* parent)
+	{
+		this->parent = parent;
+	}
+
 	void emitGestureDetected(int gestureId)
 	{
 		onGestureDetected(gestureId);
+	}
+
+	std::string& getGestureName(int gestureId) override;
+
+private:
+	AbstractGDA* parent;
+	static std::string& getErrorName()
+	{
+		static std::string en = "(no gesture library provided)";
+		return en;
 	}
 };
 
@@ -32,6 +47,7 @@ public:
 	~AbstractGDA();
 
 	AbstractGestureDetector* getDetector();
+	std::string& getGestureName(int gestureId);
 
 protected:
 	/**

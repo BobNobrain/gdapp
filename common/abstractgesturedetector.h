@@ -11,6 +11,8 @@ class AbstractGestureDetector : public BasicModule
 public:
 	AbstractGestureDetector();
 
+	virtual std::string& getGestureName(int gestureId) = 0;
+
 signals:
 	void gestureDetected(int gestureId);
 

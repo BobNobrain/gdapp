@@ -32,13 +32,13 @@ public:
 
 	BasicModule* create(const nlohmann::json &params)
 	{
-		StubGDA* result;
+		StubGDA* result = nullptr;
 		auto search = params.find("generation_chance");
 		std::string glib_file = params["gesture_library"];
 		if (search != params.end())
 		{
-			float chance = search.value();
-			result = new StubGDA(glib_file, chance);
+			double chance = search.value();
+			result = new StubGDA(glib_file, (float) chance);
 		}
 		else
 		{

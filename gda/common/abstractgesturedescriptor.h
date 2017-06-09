@@ -31,7 +31,15 @@ public:
 
 	static AbstractGestureDescriptor* create(const json& data)
 	{
-		auto result = getRegistry()[data["type"]]->create(data);
+		auto r = getRegistry();
+		std::string type = data["type"];
+		auto search = r.find(type);
+		if (search == r.end())
+		{
+			std::cerr << "Warning: cannot find gesture descriptor of type '" << type << "'! This can crash the program!" << std::endl;
+			return nullptr;
+		}
+		auto result = search->second->create(data);
 		result->id = data["id"];
 		if (data.find("name") != data.end())
 		{

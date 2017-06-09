@@ -10,7 +10,7 @@ class KeyPoseGDA : public AbstractGDA
 {
 	Q_OBJECT
 public:
-	KeyPoseGDA(std::__cxx11::string glibFilename, unsigned int maxPosesPerGesture);
+	KeyPoseGDA(std::string glibFilename, unsigned int maxPosesPerGesture);
 	~KeyPoseGDA();
 
 	float poseMatchingAccuracy;

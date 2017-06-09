@@ -28,7 +28,9 @@ SOURCES += main.cpp \
     gda/neuro/neuralnet.cpp \
     gda/neuro/caffeneuralnet.cpp \
     gda/neuro/image227keyposedescriptor.cpp \
-    gda/stub/stubgda.cpp
+    gda/stub/stubgda.cpp \
+    gl/loggergesturelistener.cpp \
+    gl/appclosegesturelistener.cpp
 
 HEADERS += \
     common/basicmodule.h \
@@ -49,6 +51,8 @@ HEADERS += \
     gda/neuro/neuralnet.h \
     gda/neuro/caffeneuralnet.h \
     gda/neuro/image227keyposedescriptor.h \
-    gda/stub/stubgda.h
+    gda/stub/stubgda.h \
+    gl/loggergesturelistener.h \
+    gl/appclosegesturelistener.h
 
 include(libs.pri)

@@ -5,6 +5,8 @@ AbstractGestureListener::AbstractGestureListener()
 	detector = nullptr;
 }
 
+AbstractGestureListener::~AbstractGestureListener() {}
+
 void AbstractGestureListener::listen(AbstractGestureDetector *d)
 {
 	if (detector != 0)

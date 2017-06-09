@@ -9,6 +9,25 @@
 			{
 				"window_name": "Video"
 			}
+		},
+		{
+			"module": "stubgda",
+			"params":
+			{
+				"generation_chance": 0.1,
+				"gesture_library": "glib.json"
+			},
+			"consumers":
+			[
+				{
+					"module": "logger",
+					"params":
+					{
+						"ostream": "cout",
+						"type": "stream"
+					}
+				}
+			]
 		}
 	]
 }

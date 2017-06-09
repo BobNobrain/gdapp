@@ -49,3 +49,14 @@ int GestureLibrary::match(AbstractGestureDescriptor *gesture, float accuracy)
 	}
 	return -1;
 }
+
+std::string& GestureLibrary::getGestureName(int gestureId)
+{
+	static std::string un = "(unknown name)";
+	for (auto d: contents)
+	{
+		if (d->id == gestureId)
+			return d->name;
+	}
+	return un;
+}

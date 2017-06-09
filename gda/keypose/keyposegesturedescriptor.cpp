@@ -90,3 +90,5 @@ public:
 		return result;
 	}
 };
+
+static KeyPoseGDFactory global_KeyPoseGDFactory;

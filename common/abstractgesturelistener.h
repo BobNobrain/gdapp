@@ -18,13 +18,10 @@ public:
 
 protected:
 	virtual void onGestureDetected(int gestureId) = 0;
+	AbstractGestureDetector* detector;
 
 private slots:
 	void gestureDetected(int gestureId);
-
-private:
-	AbstractGestureDetector* detector;
-
 };
 
 #endif // ABSTRACTGESTURELISTENER_H
