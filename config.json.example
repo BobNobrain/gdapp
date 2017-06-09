@@ -9,7 +9,9 @@
 			{
 				"weights": "w.caffemodel",
 				"structure": "s.prototxt",
-				"gesture_library": "g.glib"
+				"gesture_library": "g.glib",
+				"pose_classes_count": 5,
+				"max_poses_per_gesture": 3
 			},
 			"consumers":
 			[

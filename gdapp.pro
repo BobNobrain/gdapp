@@ -23,7 +23,11 @@ SOURCES += main.cpp \
     common/gesturelibrary.cpp \
     fp/webcameraframeproducer.cpp \
     common/util/displayframeconsumer.cpp \
-    common/pipebuilder.cpp
+    common/pipebuilder.cpp \
+    gda/neuro/neurogda.cpp \
+    gda/neuro/neuralnet.cpp \
+    gda/neuro/caffeneuralnet.cpp \
+    gda/neuro/image227keyposedescriptor.cpp
 
 HEADERS += \
     common/basicmodule.h \
@@ -39,6 +43,10 @@ HEADERS += \
     common/gesturelibrary.h \
     fp/webcameraframeproducer.h \
     common/util/displayframeconsumer.h \
-    common/pipebuilder.h
+    common/pipebuilder.h \
+    gda/neuro/neurogda.h \
+    gda/neuro/neuralnet.h \
+    gda/neuro/caffeneuralnet.h \
+    gda/neuro/image227keyposedescriptor.h
 
 include(libs.pri)
