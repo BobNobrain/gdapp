@@ -37,9 +37,9 @@ float KeyPoseGestureDescriptor::similarTo(AbstractGestureDescriptor *templateDes
 		return 0.0F; // no match at all because of different types
 	// TODO: use more robust algorithm
 	int matches = 0;
-	for (unsigned i = another->N - 1; i >= 0; i--)
+	for (int i = another->N - 1; i >= 0; i--)
 	{
-		int p_this = getPoseAt(i);
+		int p_this = getPoseAt((unsigned int) i);
 		int p_model = another->poses[i];
 		if (p_this == p_model)
 			++matches;
