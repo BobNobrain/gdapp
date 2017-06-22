@@ -10,10 +10,17 @@ int main(int argc, char *argv[])
 {
 	QCoreApplication a(argc, argv);
 
-	std::ifstream config_stream("config.json");
+	std::string config_file_name = "config.json";
+
+	if (argc > 1)
+	{
+		config_file_name = argv[1];
+	}
+
+	std::ifstream config_stream(config_file_name);
 	if (!config_stream.good())
 	{
-		std::cerr << "No config.json file found!" << std::endl;
+		std::cerr << (argc > 1? "Bad config file specified!" : "No config.json file found!") << std::endl;
 		exit(2);
 	}
 	json config_json;
