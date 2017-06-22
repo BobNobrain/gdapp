@@ -1,6 +1,7 @@
 #include "neurogda.h"
 #include "image227keyposedescriptor.h"
 #include "caffeneuralnet.h"
+//#include <QElapsedTimer>
 
 NeuroGDA::NeuroGDA(std::string glibFilename, unsigned int maxPosesPerGesture): KeyPoseGDA(glibFilename, maxPosesPerGesture)
 {
@@ -15,7 +16,10 @@ NeuroGDA::~NeuroGDA()
 
 void NeuroGDA::onNextFrameConsumed(cv::Mat &nextFrame)
 {
+//	QElapsedTimer timer;
+//	timer.start();
 	Image227KeyPoseDescriptor i227(nextFrame);
+//	std::cerr << "i227: " << timer.elapsed() << std::endl;
 	onKeyPoseCandidate(&i227);
 }
 
@@ -28,7 +32,10 @@ int NeuroGDA::classifyKeyPose(AbstractPoseDescriptor *pose)
 		return -1;
 
 	double prob = 0.0;
+//	QElapsedTimer timer;
+//	timer.start();
 	int poseClass = net->forward(i227->getData(), prob);
+//	std::cerr << "net:  " << timer.elapsed() << ", prob " << prob << ", class " << poseClass << std::endl;
 
 	if ((float) prob >= poseMatchingAccuracy)
 	{

@@ -11,11 +11,14 @@
 			}
 		},
 		{
-			"module": "stubgda",
+			"module": "neurogda",
 			"params":
 			{
-				"generation_chance": 0.02,
-				"gesture_library": "glib.json"
+				"weights": "weights.caffemodel",
+				"structure": "deploy.prototxt",
+				"gesture_library": "glib.json",
+				"pose_classes_count": 5,
+				"max_poses_per_gesture": 3
 			},
 			"consumers":
 			[
@@ -23,16 +26,8 @@
 					"module": "logger",
 					"params":
 					{
-						"ostream": "cout",
+						"ostream": "cerr",
 						"type": "stream"
-					}
-				},
-				{
-					"module": "appclose",
-					"params":
-					{
-						"gesture_id": 1,
-						"repeat_twice": true
 					}
 				}
 			]

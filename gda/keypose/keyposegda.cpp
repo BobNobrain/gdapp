@@ -3,7 +3,7 @@
 KeyPoseGDA::KeyPoseGDA(std::string glibFilename, unsigned int maxPosesPerGesture): AbstractGDA(glibFilename)
 {
 	accumulator = new KeyPoseGestureDescriptor(maxPosesPerGesture);
-	poseMatchingAccuracy = 0.8F;
+	poseMatchingAccuracy = 0.6F;
 }
 
 KeyPoseGDA::~KeyPoseGDA()
